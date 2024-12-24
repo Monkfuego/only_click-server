@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "788024224936",
+    "firebase_url": "https://onlyclick-10d32-default-rtdb.firebaseio.com",
+    "project_id": "onlyclick-10d32",
+    "storage_bucket": "onlyclick-10d32.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:788024224936:android:936dcfd05b65b71ecd669d",
+        "android_client_info": {
+          "package_name": "com.mycompany.onlyclick"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "788024224936-868g2nok4r447l6fvspn7g3httba34af.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.onlyclick",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "788024224936-jovq5n5b42rvmulmlegth2mfjfpfbbhf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcQ0Vh6mn_oZXL_W8_R3AolNcJsDbi-VI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "788024224936-jovq5n5b42rvmulmlegth2mfjfpfbbhf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "788024224936-b2sid141j4o7k17hqqlsfmruev20fls0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.onlyclick"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
