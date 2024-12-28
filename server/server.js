@@ -4,12 +4,12 @@ const mongoose = require('mongoose');
 
 // Import models
 const Provider = require('./models/Provider');
-const ServiceDetails = require('./models/ServiceDetails');
-const ServiceHistory = require('./models/ServiceHistory');
+const ServiceDetails = require('./models/serviceDetails');
+const ServiceHistory = require('./models/serviceHistory');
 const User = require('./models/User');
-const BookingHistory = require('./models/BookingHistory');
-const Expenditure = require('./models/Expenditure');
-const BookingSlot = require('./models/BookingSlot');
+const BookingHistory = require('./models/bookingHistory');
+const Expenditure = require('./models/expenditure');
+const BookingSlot = require('./models/bookingSlot');
 
 const app = express();
 app.use(express.json());
