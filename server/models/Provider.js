@@ -7,4 +7,4 @@ const providerSchema = new mongoose.Schema({
     service_details_id: String,
 });
 
-module.exports = mongoose.model('Provider', providerSchema);
+module.exports = mongoose.models.Provider || mongoose.model('Provider', providerSchema);
