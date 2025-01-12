@@ -48,45 +48,43 @@ const Provider = mongoose.model("Provider", providerSchema);
 
 const userSchema = new mongoose.Schema({
     _id : String,
-    name: String,
-    authInfo: {
-        email: String,
-        passwordHash: String,
-    },
-    contactInfo: String,
+    emain : String,
+    address : String,
+    pincode : Number,
+    businesstype : String,
+    password : String
 });
 const User = mongoose.model("User", userSchema);
 
 // RESTful Routes
 
 // Users
-app.get("/api/users", async (req, res) => {
+app.get("/api/user", async (req, res) => {
     const users = await User.find();
     res.json(users);
 });
 
-app.get("/api/users/:id", async (req, res) => {
+app.get("/api/user/:id", async (req, res) => {
     const user = await User.findById(req.params.id);
     if (!user) return res.status(404).send("User not found");
     res.json(user);
 });
 
-app.post("/api/users", async (req, res) => {
+app.post("/api/user", async (req, res) => {
     const { _id , name, email, passwordHash, contactInfo } = req.body;
     const user = new User({
-        _id,
-        name,
-        authInfo: {
-            email,
-            passwordHash,
-        },
-        contactInfo,
+        _id : String,
+        emain : String,
+        address : String,
+        pincode : Number,
+        businesstype : String,
+        password : String
     });
     await user.save();
     res.status(201).json(user);
 });
 
-app.put("/api/users/:id", async (req, res) => {
+app.put("/api/user/:id", async (req, res) => {
     const { name, email, passwordHash, contactInfo } = req.body;
     const user = await User.findByIdAndUpdate(
         req.params.id,
@@ -97,7 +95,7 @@ app.put("/api/users/:id", async (req, res) => {
     res.json(user);
 });
 
-app.delete("/api/users/:id", async (req, res) => {
+app.delete("/api/user/:id", async (req, res) => {
     const user = await User.findByIdAndDelete(req.params.id);
     if (!user) return res.status(404).send("User not found");
     res.send("User deleted");
