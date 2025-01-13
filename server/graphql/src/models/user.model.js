@@ -39,9 +39,12 @@ const userSchema = new Schema(
   
 
 userSchema.pre("save", async function (next) {
+    console.log("checking if it even reaches here for saving pass?")
   if (!this.isModified("password")) return next();
+  console.log("checking if it even reaches here for saving pass2?")
 
   this.password = await bcrypt.hash(this.password, 10);
+  console.log("checking if it even reaches here for saving pass3?")
   next();
 });
 
@@ -50,6 +53,8 @@ userSchema.methods.isPasswordCorrect = async function (password) {
 };
 
 userSchema.methods.generateAccessToken = function () {
+    console.log("checking if it even reaches here for generating token?")
+
   return jwt.sign(
     {
       _id: this._id,

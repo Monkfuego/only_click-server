@@ -1,5 +1,5 @@
-import { Booking } from "../models/booking.model";
-import { Service } from "../models/service.model";
+import { Booking } from "../models/booking.model.js";
+import { Service } from "../models/service.model.js";
 const bookService = async (req, res) => {
   const user = req.user;
   const { serviceId, date, address, startTime, endTime } = req.body;

@@ -1,6 +1,7 @@
 {
   "name": "graphql",
   "version": "1.0.0",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon index.js"

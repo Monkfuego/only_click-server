@@ -3,8 +3,9 @@ import {
   cancel,
   complete,
   previousBookings,
-} from "../controllers/booking.controller";
-import { authenticate } from "../middleware/auth.middleware";
+  bookService
+} from "../controllers/booking.controller.js";
+import { authenticate } from "../middleware/auth.middleware.js";
 const router = Router();
 router.use(authenticate);
 router.route("/book").post(bookService);

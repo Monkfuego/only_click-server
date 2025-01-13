@@ -1,4 +1,4 @@
-import { Provider } from "../models/provider.model";
+import { Provider } from "../models/provider.model.js";
 
 const getAllProvider = async (req, res) => {
   try {
