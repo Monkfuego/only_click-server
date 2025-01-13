@@ -48,26 +48,6 @@ const bookingSchema = new Schema(
   }
 );
 
-bookingSchema.pre("find", function () {
-  const currentDate = new Date();
-  this.updateMany(
-    {
-      status: { $in: ["pending", "cancel"] },
-      $expr: {
-        $lt: [
-          {
-            $dateFromParts: {
-              year: { $year: "$date" },
-              hour: { $hour: "$endTime" },
-              minute: { $minute: "$endTime" },
-            },
-          },
-          currentDate,
-        ],
-      },
-    },
-    { status: "expired" }
-  );
-});
+
 
 export const Booking = mongoose.model("Booking", bookingSchema);

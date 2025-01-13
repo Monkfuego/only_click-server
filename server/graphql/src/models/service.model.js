@@ -15,9 +15,30 @@ const serviceSchema = new Schema({
       enum: ["carpenter", "plumber", "pest control", "electrician", "cleaner"],
     },
   ],
+  location: {
+    type: String,
+    required: true,
+  },
   price: {
     type: String,
     required: true,
+  },
+  serviceAt: {
+    type: String,
+    default: "onsite",
+    enum: ["online", "remote", "onsite"],
+  },
+  description: {
+    type: String,
+  },
+  timeApprox: {
+    type: String,
+  },
+  rating: {
+    type: Number,
+  },
+  image: {
+    type: String,
   },
 });
 

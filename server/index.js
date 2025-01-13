@@ -7,7 +7,6 @@ import serviceRoutes from './graphql/src/routes/service.routes.js';
 import providerRoutes from './graphql/src/routes/provider.routes.js';
 import connectDB from './graphql/src/db/index.js';
 import dotenv from "dotenv"
-
 dotenv.config()
 const app = express();
 app.use(express.json()); // Middleware to parse JSON bodies

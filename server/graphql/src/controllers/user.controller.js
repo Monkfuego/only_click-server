@@ -1,7 +1,6 @@
-import { log } from "console";
 import { User } from "../models/user.model.js";
 
-const generateAccessandRefreshTokens = async (req,res,userId) => {
+const generateAccessandRefreshTokens = async (req, res, userId) => {
   try {
     const user = await User.findById(userId);
     const accessToken = user.generateAccessToken();
@@ -11,10 +10,10 @@ const generateAccessandRefreshTokens = async (req,res,userId) => {
     await user.save({ validateBeforeSave: false });
     return { accessToken, refreshToken };
   } catch (error) {
-    console.log('====================================');
-    console.log('rttor in generating tokens',error);
-    console.log('====================================');
-    return 
+    console.log("====================================");
+    console.log("rttor in generating tokens", error);
+    console.log("====================================");
+    return;
     // return res.status(500).json({
     //   message: "Something went wrong while generating access and refresh token",
     // });
@@ -30,11 +29,10 @@ const registerUser = async (req, res) => {
     address,
     pincode,
   } = req.body;
-  console.log('====================================');
-  console.log("checking the request",req.body);
-  console.log('====================================');
+  console.log("====================================");
+  console.log("checking the request", req.body);
+  console.log("====================================");
   try {
-    
     const user = await User.create({
       businessName,
       email,
@@ -44,10 +42,12 @@ const registerUser = async (req, res) => {
       address,
       pincode,
     });
-    console.log('====================================');
-    console.log("logging to see if useer is created",user);
-    console.log('====================================');
-    const { accessToken, refreshToken } = generateAccessandRefreshTokens(req,res,
+    console.log("====================================");
+    console.log("logging to see if useer is created", user);
+    console.log("====================================");
+    const { accessToken, refreshToken } = generateAccessandRefreshTokens(
+      req,
+      res,
       user._id
     );
     const registeredUser = await User.findById(user._id).select(
@@ -80,14 +80,18 @@ const loginUser = async (req, res) => {
   if (!user) {
     return res.status(400).json({ message: "User doesnt exist" });
   }
-
+  console.log("====================================");
+  console.log("this is user", user);
+  console.log("====================================");
   const isPasswordValid = await user.isPasswordCorrect(password);
 
   if (!isPasswordValid) {
     return res.status(401).json({ message: "Invalid Password" });
   }
 
-  const { accessToken, refreshToken } = await generateAccessandRefreshTokens(req,res,
+  const { accessToken, refreshToken } = await generateAccessandRefreshTokens(
+    req,
+    res,
     user._id
   );
 
