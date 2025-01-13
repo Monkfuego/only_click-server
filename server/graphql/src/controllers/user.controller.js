@@ -157,7 +157,7 @@ const updateProfile = async (req, res) => {
         pincode,
       },
       { new: true }
-    ).select("-password refreshToken accessToken");
+    ).select("-password -refreshToken -accessToken");
     return res
       .status(200)
       .json({ message: "User Updated Successfully", updatedUser });
