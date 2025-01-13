@@ -4,12 +4,12 @@ const bookingSchema = new Schema(
   {
     user: {
       type: Schema.Types.ObjectId,
-      ref: "User", 
+      ref: "User",
       required: true,
     },
     provider: {
       type: Schema.Types.ObjectId,
-      ref: "Provider", 
+      ref: "Provider",
       required: true,
     },
     service: {
@@ -17,9 +17,9 @@ const bookingSchema = new Schema(
       ref: "Service",
       required: true,
     },
-    address:{
-        type:String,
-        required:true
+    address: {
+      type: String,
+      required: true,
     },
     status: {
       type: String,
@@ -31,16 +31,20 @@ const bookingSchema = new Schema(
       required: true,
     },
     startTime: {
-      type: String, 
+      type: String,
       required: true,
     },
     endTime: {
-      type: String, 
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
       required: true,
     },
   },
   {
-    timestamps: true, 
+    timestamps: true,
   }
 );
 
@@ -66,4 +70,4 @@ bookingSchema.pre("find", function () {
   );
 });
 
-export const Booking= mongoose.model("Booking", bookingSchema);
+export const Booking = mongoose.model("Booking", bookingSchema);

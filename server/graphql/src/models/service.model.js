@@ -15,6 +15,10 @@ const serviceSchema = new Schema({
       enum: ["carpenter", "plumber", "pest control", "electrician", "cleaner"],
     },
   ],
+  price: {
+    type: String,
+    required: true,
+  },
 });
 
 export const Service = mongoose.model("Service", serviceSchema);

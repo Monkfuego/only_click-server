@@ -2,7 +2,11 @@ const express = require("express");
 const dotenv = required("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const userRoutes=require('./src/routes/user.routes')
+const userRoutes = require("./src/routes/user.routes");
+const bookingRoutes = require("./src/routes/booking.routes");
+const providerRoutes = require("./src/routes/provider.routes");
+const serviceRoutes = require("./src/routes/service.routes");
+
 const app = express();
 dotenv.config({
   path: "./env",
@@ -22,10 +26,13 @@ mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");
 });
 
-app.get('/',(req,res)=>{
-  res.send('Server is running')
-})
-app.use('/api/user',userRoutes)
+app.get("/", (req, res) => {
+  res.send("Server is running");
+});
+app.use("/api/user", userRoutes);
+app.use("/api/booking", bookingRoutes);
+app.use("/api/provider", providerRoutes);
+app.use("/api/service", serviceRoutes);
 
 // // Mongoose Models
 // const bookingHistorySchema = new mongoose.Schema({
@@ -303,7 +310,6 @@ app.use('/api/user',userRoutes)
 // });
 
 // Server
-
 
 const PORT = 3000;
 app.listen(PORT, () => {
