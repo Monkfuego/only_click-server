@@ -12,7 +12,7 @@ const serviceSchema = new Schema({
     {
       type: String,
       default: "carpenter",
-      enum: ["carpenter", "plumber", "pest control", "electrician", "cleaner"],
+      enum: ["carpenter", "plumber", "pest", "electrician", "cleaner"],
     },
   ],
   location: {

@@ -10,4 +10,8 @@ const getAllServices = async (req, res) => {
     return res.status(400).json({ error: "failure in fetching the providers" });
   }
 };
-export { getAllServices };
+const getCategoryService = async (req, res) => {
+  const { category } = req.params;
+  
+};
+export { getAllServices, getCategoryService };
