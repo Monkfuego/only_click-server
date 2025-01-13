@@ -2,11 +2,11 @@ import { Booking } from "../models/booking.model";
 import { Service } from "../models/service.model";
 const bookService = async (req, res) => {
   const user = req.user;
-  const { serviceId, date, address, startTime, endTime} = req.body;
+  const { serviceId, date, address, startTime, endTime } = req.body;
   const startDate = new Date(`${date}${startTime}:00`);
   const endDate = new Date(`${date}${endTime}:00`);
-  
-  const timeDifference = endDate - startDate;  // Milliseconds difference
+
+  const timeDifference = endDate - startDate;
   const durationInHours = timeDifference / (1000 * 60 * 60);
   try {
     const requestedService = await Service.findById(serviceId);
@@ -19,7 +19,7 @@ const bookService = async (req, res) => {
       date: new Date(date),
       startTime,
       endTime,
-      price:requestedService.price*durationInHours
+      price: requestedService.price * durationInHours,
     });
     return res.status(200).json({ message: "SuccessFully Booked", booking });
   } catch (error) {
