@@ -7,9 +7,11 @@ import serviceRoutes from './graphql/src/routes/service.routes.js';
 import providerRoutes from './graphql/src/routes/provider.routes.js';
 import connectDB from './graphql/src/db/index.js';
 import dotenv from "dotenv"
+import cookieParser from 'cookie-parser';
 dotenv.config()
 const app = express();
 app.use(express.json()); // Middleware to parse JSON bodies
+app.use(cookieParser())
 app.use(cors({ origin: "*" }));
 connectDB()
 .then(()=>{

@@ -143,7 +143,7 @@ const getProfile = async (req, res) => {
   return res.status(200).json({
     message: "User Profile fetched SuccessFully",
     profile,
-    accessToken,
+    
   });
 };
 const updateProfile = async (req, res) => {
